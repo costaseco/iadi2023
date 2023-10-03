@@ -12,4 +12,9 @@ Assignment 1 is mandatory but is not graded. you can find the description of the
 
 You will receive instructions on how to submit the assignment very soon. First, there will be a form for you to fill in with your name and GitHub username, and then you will receive an invitation to join GitHub Classroom and submit your assignment.
 
-The due date for assignment 1 is next monday, 25th of September, at 23:59.
+The due date for assignment 1 is next Monday, 25th of September, at 23:59.
+
+## Project Assignment:
+
+You can find the project assignment in the repository. 
+
