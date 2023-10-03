@@ -1,0 +1,28 @@
+POST http://localhost:8080/api/people
+Content-Type: application/x-www-form-urlencoded
+
+name=jose
+
+###
+GET http://localhost:8080/api/hello
+Accept: application/json
+
+###
+POST http://localhost:8080/api/hello
+Content-Type: application/x-www-form-urlencoded
+
+name=joao
+
+###
+POST http://localhost:8080/api/hello
+Content-Type: application/x-www-form-urlencoded
+
+name=maria
+
+###
+POST http://localhost:8080/api/hello
+Content-Type: application/x-www-form-urlencoded
+
+name=jose
+
+###
