@@ -22,7 +22,7 @@ Some more details about the operations available will be made available in the n
 
 ### Server-side application 
 
-Your server-side application should implement a layered architecture to make available a REST API for the resources of the system. The resources that are visible in the API are the following: client, owner, appartment, period, booking and review. Not all operations will have to be implemented in the API, but the ones that are implemented should be fully functional. Nevertheless you should design the full API following the REST architectural style. It should identify resources and sub-resources clearly to support the full life-cycle of the resources. 
+Your server-side application should implement a layered architecture to make available a REST API for the resources of the system. The resources that are visible in the API are the following: client, owner, appartment, period, booking and review. (**NEW**) Not all operations will have to be implemented in the API, but the ones that are implemented should be fully functional. Nevertheless you should design the full API following the REST architectural style. It should identify resources and sub-resources clearly to support the full life-cycle of the resources. 
 
 Data resources needed to make the application work do not need to be fully managed by the API and can be introduced in the database using SQL scripts or seed data procedures.
  
