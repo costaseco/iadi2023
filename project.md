@@ -4,16 +4,17 @@
 ### Change log
 
 - 2022-10-03: Initial version, this is a draft, still up for discussion and receiving feedback.
+- 2022-10-04: Removed the role "Cleaner". Improved the text readability and clarified some details. 
 
 ## Introduction
 
 The topic for this yeas is an application to manage appartments in a local holiday accommodation company. The functionalities involved include managing the entry, exit, and change of state of appartments in the system as they are booked, cleaned, and delivered to the client. The company manages a series of appartments in different locations and owned by different owners.
 
-The actors in this systems are the following: Client, Cleaner, Manager, and Owner.
+The actors in this systems are the following: Client, Manager, and Owner.
 
-Each appartment has a history of states in the system. For each existing period in time, an appartment maybe "available", "under consideration", "booked", "occupied", "awaiting review", or "closed".
+Each appartment has a history of periods and states in the system. For each existing period in a calendar, an appartment maybe "available", "under consideration", "booked", "occupied", "awaiting review", or "closed". Each state has a date associated and you should be able to draw a history from them.
 
-A manager or the owner of an appartment can add a period to the history of their appartment where the appartment is "available". When a client bids to rent an appartment it changes to state "under consideration". When the owner or a manager accepts the bid is changes to "booked", after checking it becomes "occupied", after checkout it becomes "awaiting review" and after a review is posted by the client it becomes "closed". If a bid is placed for a part of a period, the remaining period becomes a new period block, available for rent. 
+The owner of an appartment can add a period to the history of their appartment where the appartment is in the state "available". When a client bids to rent an appartment it adds a state to the history with value "under consideration". When the owner or a manager accepts the bid the latest state becomes "booked", after check-in it becomes "occupied", after checkout it becomes "awaiting review" and after a review is posted by the client it becomes "closed". A bid is placed for a (part of) a period, If accepted, the remaining period becomes one new period (or more than one), in the state "available" for rent.
 
 Some more details about the operations available will be made available in the next weeks. You already have a lot to work with for the first steps.  
 
@@ -21,7 +22,7 @@ Some more details about the operations available will be made available in the n
 
 ### Server-side application 
 
-Your server-side application should implement a layered architecture to make available a REST API for the resources of the system. The resources that are visible in the API are the following: client, owner, appartment, period, booking and review. 
+Your server-side application should implement a layered architecture to make available a REST API for the resources of the system. The resources that are visible in the API are the following: client, owner, appartment, period, booking and review. Not all operations will have to be implemented in the API, but the ones that are implemented should be fully functional. Nevertheless you should design the full API following the REST architectural style. It should identify resources and sub-resources clearly to support the full life-cycle of the resources. 
 
 Data resources needed to make the application work do not need to be fully managed by the API and can be introduced in the database using SQL scripts or seed data procedures.
  
