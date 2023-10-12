@@ -5,26 +5,31 @@
 
 - 2022-10-03: Initial version, this is a draft, still up for discussion and receiving feedback.
 - 2022-10-04: Removed the role "Cleaner". Improved the text readability and clarified some details. 
+- 2022-10-12: Clarified the terms. Highlighted in *italic* the main changes.
 
 ## Introduction
 
-The topic for this yeas is an application to manage appartments in a local holiday accommodation company. The functionalities involved include managing the entry, exit, and change of state of appartments in the system as they are booked, cleaned, and delivered to the client. The company manages a series of appartments in different locations and owned by different owners.
+The topic for this yeas is an application to manage appartments in a local holiday accommodation company. The functionalities involved include managing the *booking*, entry, exit, and change of state of appartments in the system as they are booked, cleaned, and delivered to the client. The company manages a series of appartments in different locations and owned by different owners.
 
 The actors in this systems are the following: Client, Manager, and Owner.
 
-Each appartment has a history of periods and states in the system. For each existing period in a calendar, an appartment maybe "available", "under consideration", "booked", "occupied", "awaiting review", or "closed". Each state has a date associated and you should be able to draw a history from them.
+Each appartment has a *sequence* of periods and states in the system. *Each appartment has a set of reservations included in these periods of availability*. For each existing *reserved period* in *the* calendar, an appartment maybe "available", "under consideration", "booked", "occupied", "awaiting review", or "closed". Each state has a date associated and you should be able to draw a history from them.
 
-The owner of an appartment can add a period to the history of their appartment where the appartment is in the state "available". When a client bids to rent an appartment it adds a state to the history with value "under consideration". When the owner or a manager accepts the bid the latest state becomes "booked", after check-in it becomes "occupied", after checkout it becomes "awaiting review" and after a review is posted by the client it becomes "closed". A bid is placed for a (part of) a period, If accepted, the remaining period becomes one new period (or more than one), in the state "available" for rent.
+The owner of an appartment can add a period to the *sequence of periods of* their appartment. *In these periods the appartment is "available"*. When a client *makes a reservation* to rent an appartment in a given period, the reservation is "under consideration". When the owner accepts the *reservation*, the state becomes "booked", after check-in it becomes "occupied", after checkout it becomes "awaiting review" and after a review is posted by the client it becomes "closed". A *reservation* is placed for a (part of) a period in the sequences of availability of the appartment. If accepted, the remaining period *becomes available*. A manager can act on behalf of the owner to accept or reject a reservation and of the client to check-in or check-out. Reviews can only be posted by the client that made the reservation. *A basic business rule is that a reservation needs to be included in a period of availability of the appartment and that no two reservations can overlap in time.*
 
-Some more details about the operations available will be made available in the next weeks. You already have a lot to work with for the first steps.  
+The operations that you must implement need to support the workflow above and support a client application where it is possible to list and search for appartments, see a calendar with the available periods for a given appartment, do a reservation and its associated operations. 
+
+Data associated with users includes the username, password, name, email, picture and phone number. Data associated with appartments includes the name, description, location, amenities, pictures, and price per night. Data associated with periods includes the start date and end date. Data associated with reservations includes the start date and end date. Data associated with reviews includes the text and the rating. 
 
 ## Technical Details
 
 ### Server-side application 
 
-Your server-side application should implement a layered architecture to make available a REST API for the resources of the system. The resources that are visible in the API are the following: client, owner, appartment, period, booking and review. (**NEW**) Not all operations will have to be implemented in the API, but the ones that are implemented should be fully functional. Nevertheless you should design the full API following the REST architectural style. It should identify resources and sub-resources clearly to support the full life-cycle of the resources. 
+Your server-side application should implement a layered architecture to make available a REST API for the resources of the system. The resources that are visible in the API are the following: client, owner, appartment, period, booking and review. Not all operations will have to be implemented in the API, but the ones that are implemented should be fully functional. Nevertheless you should design the full API following the REST architectural style. It should identify resources and sub-resources clearly to support the full life-cycle of the resources. 
 
 Data resources needed to make the application work do not need to be fully managed by the API and can be introduced in the database using SQL scripts or seed data procedures.
+
+*You do not need to store pictures in blobs in the database, but you should store a URL to the picture in the database instead.*
  
 ### Requirements for the Server Application
 
