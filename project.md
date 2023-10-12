@@ -30,6 +30,10 @@ Your server-side application should implement a layered architecture to make ava
 Data resources needed to make the application work do not need to be fully managed by the API and can be introduced in the database using SQL scripts or seed data procedures.
 
 *You do not need to store pictures in blobs in the database, but you should store a URL to the picture in the database instead.*
+
+*Hint1: the data representation at the level of the REST API does not need to map directly to the database schema. You may choose to not show some identifiers in the REST API, do not represent some of the minor resources as full resources, or even to aggregate some resources in a single representation.
+
+Hint2: Although you need to present the design it, you do not need to implement the services that manage users or appartments. That data can be loaded as seed data in the database. Present the API implementation with empty methods.*
  
 ### Requirements for the Server Application
 
