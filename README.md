@@ -16,5 +16,5 @@ The due date for assignment 1 is next Monday, 25th of September, at 23:59.
 
 ## Project Assignment:
 
-You can find the project assignment in the repository. 
+You can find the project assignment in the repository (file project.md). The link for the project assignment in GitHub classroom will be sent by email.
 
