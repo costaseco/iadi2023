@@ -36,4 +36,13 @@ interface BooksAPI {
         ApiResponse(responseCode = "500", description = "Internal server error")
     ])
     fun addBook(book:BookDTO)
+
+    @GetMapping("{id}")
+    @Operation(summary = "Get a book by its id")
+    @ApiResponses(value = [
+        ApiResponse(responseCode = "200", description = "The book with the given id"),
+        ApiResponse(responseCode = "404", description = "Book not found"),
+        ApiResponse(responseCode = "500", description = "Internal server error")
+    ])
+    fun getBookById(id:Long):BookDTO
 }
