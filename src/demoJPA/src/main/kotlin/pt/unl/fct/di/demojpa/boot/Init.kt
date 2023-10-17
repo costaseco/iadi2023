@@ -16,7 +16,6 @@ class Init(val books:BookRepository, val categories: CategoryRepository) : Comma
     @Transactional
     override fun run(vararg args: String?) {
         val fantasy = CategoryDAO(0, "Fantasy", emptySet())
-        val sciencefiction = CategoryDAO(0, "ScienceFiction", emptySet())
 
         val lor1 = BookDAO(0,"The Fellowship of the Ring", fantasy)
         val lor2 = BookDAO(0,"The Two Towers", fantasy)
@@ -40,6 +39,18 @@ class Init(val books:BookRepository, val categories: CategoryRepository) : Comma
         wot.add(BookDAO(0, "A Memory of Light", fantasy))
         books.saveAll(wot)
 
+        fantasy.books = setOf(lor1,lor2,lor3)
+        categories.saveAll(listOf(fantasy))
+    }
+}
+
+@Component
+@Order(2)
+class Init2(val books:BookRepository, val categories: CategoryRepository) : CommandLineRunner {
+    @Transactional
+    override fun run(vararg args: String?) {
+        val sciencefiction = CategoryDAO(0, "ScienceFiction", emptySet())
+
         val asimov = mutableListOf<BookDAO>()
         asimov.add(BookDAO(0, "Foundation", sciencefiction))
         asimov.add(BookDAO(0, "I, Robot", sciencefiction))
@@ -51,10 +62,21 @@ class Init(val books:BookRepository, val categories: CategoryRepository) : Comma
         asimov.add(BookDAO(0, "Robots and Empire", sciencefiction))
         books.saveAll(asimov)
 
-        fantasy.books = setOf(lor1,lor2,lor3)
-        categories.saveAll(listOf(fantasy,sciencefiction))
-    }
-}
+        categories.saveAll(listOf(sciencefiction))
 
-@Component
-class Init2
+        // Add more books to the database, under the category romance
+        val romance = CategoryDAO(0, "Romance", emptySet())
+        val romanceBooks = mutableListOf<BookDAO>()
+        romanceBooks.add(BookDAO(0, "Pride and Prejudice", romance))
+        romanceBooks.add(BookDAO(0, "Sense and Sensibility", romance))
+        romanceBooks.add(BookDAO(0, "Emma", romance))
+        romanceBooks.add(BookDAO(0, "Persuasion", romance))
+        romanceBooks.add(BookDAO(0, "Mansfield Park", romance))
+        romanceBooks.add(BookDAO(0, "Northanger Abbey", romance))
+        romanceBooks.add(BookDAO(0, "Lady Susan", romance))
+        books.saveAll(romanceBooks)
+
+        categories.saveAll(listOf(romance))
+    }
+
+}
