@@ -28,6 +28,8 @@ class SecurityConfig {
         http.invoke {
             authorizeHttpRequests {
                 authorize("/api/books", permitAll)
+                authorize("/v3/api-docs", permitAll)
+                authorize("/swagger-ui/**", permitAll)
                 authorize(anyRequest, authenticated)
             }
             formLogin {  }

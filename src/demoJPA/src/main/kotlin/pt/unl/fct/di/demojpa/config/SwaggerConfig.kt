@@ -6,6 +6,7 @@ import io.swagger.v3.oas.models.info.Info
 import io.swagger.v3.oas.models.info.License
 import io.swagger.v3.oas.models.servers.Server
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.util.List
 
@@ -20,6 +21,7 @@ class SwaggerConfig {
     @Value("\${openapi.prod-url}")
     private val prodUrl: String? = null
 
+    @Bean
     fun myOpenAPI(): OpenAPI {
         val devServer = Server()
         devServer.setUrl(devUrl)

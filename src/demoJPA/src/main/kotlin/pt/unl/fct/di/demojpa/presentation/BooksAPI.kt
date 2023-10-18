@@ -15,6 +15,11 @@ data class BookDTO(val id:Long, val name:String, val kind:CategoryInBookDTO)
 @Schema(name="Short Category in Book", description = "Short version of the category")
 data class CategoryInBookDTO(val id:Long, val name:String)
 
+@Schema(name="Category")
+data class CategoryDTO(val id:Long, val name:String, val books:Set<BookInCategoryDTO>)
+
+data class BookInCategoryDTO(val id:Long, val name:String)
+
 @RequestMapping("/api/books")
 @Tag(name = "Books", description = "Books API")
 interface BooksAPI {
