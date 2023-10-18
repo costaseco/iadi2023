@@ -3,9 +3,10 @@
 
 ### Change log
 
-- 2022-10-03: Initial version, this is a draft, still up for discussion and receiving feedback.
-- 2022-10-04: Removed the role "Cleaner". Improved the text readability and clarified some details. 
-- 2022-10-12: Clarified the terms. Highlighted in *italic* the main changes.
+- 2023-10-03: Initial version, this is a draft, still up for discussion and receiving feedback.
+- 2023-10-04: Removed the role "Cleaner". Improved the text readability and clarified some details. 
+- 2023-10-12: Clarified the terms. Highlighted in *italic* the main changes.
+- 2023-10-18: Added some submission details. 
 
 ## Introduction
 
@@ -67,8 +68,11 @@ At this point you can already start working on items 1 and 2. The rest of the it
 
 ### Submission details
 
-More later.
+The first submission will contain items 1 to 4. The second submission will contain items 5 to 8.
 
+You reveiced the link to the assignment by email, form your team and use that as your work repository, the last submission at the deadline will be considered as the final one for each part of the assignment.
+
+You can refine the server-side application in the second submission. 
 ## Important Dates
 
 First submission: 2022-10-27
