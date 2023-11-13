@@ -2,6 +2,7 @@ package pt.unl.fct.di.demojpa.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.invoke
@@ -12,6 +13,7 @@ import org.springframework.security.provisioning.UserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.config.web.server.invoke
 import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
 import org.springframework.stereotype.Service
 import pt.unl.fct.di.demojpa.service.UserService
 
@@ -20,11 +22,11 @@ import pt.unl.fct.di.demojpa.service.UserService
 
 @EnableWebSecurity
 @Configuration
-class SecurityConfig {
+open class SecurityConfig {
 
     @Bean
     @Throws(Exception::class)
-    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+    open fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http.invoke {
             authorizeHttpRequests {
                 authorize("/api/books", permitAll)
@@ -32,6 +34,9 @@ class SecurityConfig {
                 authorize("/swagger-ui/**", permitAll)
                 authorize(anyRequest, authenticated)
             }
+            addFilterBefore<BasicAuthenticationFilter>(UserPasswordAuthenticationFilterToJWT("/login", authenticationManager))
+            addFilterBefore<BasicAuthenticationFilter>(JWTAuthenticationFilter())
+
             formLogin {  }
         }
         return http.build()
