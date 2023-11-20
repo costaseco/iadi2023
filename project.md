@@ -95,7 +95,7 @@ All deliverables should be submitted by pushing them to the repository of the pr
 
 4. Automatic unit and integration tests in a continuous integration style
 
-5. Client-side application (a commit in the repository - tag CLIENT)
+5. Client-side application (a commit in the repository - tag CLIENT) . including code and IFML specification of the UI.
 
 6. Presentation
 
