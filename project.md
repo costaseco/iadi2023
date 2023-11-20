@@ -7,6 +7,7 @@
 - 2023-10-04: Removed the role "Cleaner". Improved the text readability and clarified some details. 
 - 2023-10-12: Clarified the terms. Highlighted in *italic* the main changes.
 - 2023-10-18: Added some submission details. 
+- 2023-11-20: Added the user stories for the development of the front-end application. Relaxed the requirements for the server-side application (database).
 
 ## Introduction
 
@@ -36,9 +37,47 @@ Data resources needed to make the application work do not need to be fully manag
 
 Hint2: Although you need to present the design it, you do not need to implement the services that manage users or appartments. That data can be loaded as seed data in the database. Present the API implementation with empty methods.*
  
-### Requirements for the Server Application
+### Technical Requirements for the Server Application
 
-The application should be implemented using the Spring framework and Kotlin. The API should be documented using OpenAPI 3.0. The application should be developed in a layered architecture with a persistent database (H2 in a file or MySQL).
+The application should be implemented using the Spring framework and Kotlin. The API should be documented using OpenAPI 3.0. The application should be developed in a layered architecture with a  database in memory (H2). All the data necessary to run the application should be preloaded into the database.
+
+### Client-side application 
+
+Your client-side single-page (web) application should implement a hierarchical structure of React components directly mapping a specification developed using IFML and implementing the following user-stories:
+
+1. As a client, I want to see the first page of a list of appartments so that I can choose one to rent and see its details.
+
+2. As a client, I want to see the next page in the list of appartments so that I can choose one to rent and see its details.
+
+3. As a client, I want to see the details of an appartment so that I can read its description and amenities and decide if I want to rent it.
+
+4. As a client, I want to see the calendar of an appartment so that I can decide when to rent it.
+
+5. As a client, I want to see the reviews of an appartment so that I can decide if I want to rent it.
+
+6. As a client, I want to select a starting date and an ending date in the calendar of an appartment to start making a reservation.
+
+7. As a client, I want to fill a form with the number of people to finish making a reservation.
+
+8. As a client, I want to see the details of a reservation so that I can see if it was accepted.
+
+9. As a client, I want to see the details of a reservation so that I can cancel it and see the result in the the details of the reservation.
+
+10. As a client, I want to see the details of a reservation so that I can check-in and see the result in the the details of the reservation.
+
+11. As a client, I want to see the details of a reservation so that I can check-out and see the result in the the details of the reservation.
+
+12. As an owner, I want to see the list of my appartments so that I can select one appartment and see its details. 
+
+13. As an owner, I want to see the details of an appartment so that I can add a period of availability and see the result in the calendar.
+
+14. As an owner, I want to see the details of an appartment so that I can see the list of reservations for it.
+
+15. As an owner, I want to see the details of a reservation so that I can accept it and see the result in the list of reservations.
+
+### Technical Requirements for the Client Application
+
+The application should be implemented using the React/Redux framework and TypeScript. The client application should work together with the server-side application to provide a full user experience. The connection to the server-side application should be done using the OpenAPI specification. 
 
 ## Working Teams 
 
@@ -52,19 +91,18 @@ All deliverables should be submitted by pushing them to the repository of the pr
 
 2. OpenAPI (a pdf file with the specification)
 
-3. Server-side application (a commit in the repository)
+3. Server-side application (a commit in the repository - tag SERVER)
 
-4.  Automatic unit and integration tests in a continuous integration style
+4. Automatic unit and integration tests in a continuous integration style
 
-5. Client-side application (a commit in the repository)
+5. Client-side application (a commit in the repository - tag CLIENT)
 
 6. Presentation
 
 7. Report
 
-8. Video with Demo
+8. Video with Demo (5 minutes showing all user stories)
 
-At this point you can already start working on items 1 and 2. The rest of the items will be discussed in the next weeks.
 
 ### Submission details
 
